@@ -11,7 +11,7 @@ package frc.robot.drivetrain;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
 import frc.robot.RobotMap;
 import frc.robot.drivetrain.commands.TeleOpIntake;
 
@@ -22,10 +22,10 @@ public class Intake extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private WPI_TalonSRX IntakeMotor;
+  public static WPI_TalonSRX IntakeMotor;
 
   public Intake() {
-    IntakeMotor = new WPI_TalonSRX(RobotMap.INTAKEMOTOR);
+    IntakeMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR);
 
 
 

@@ -5,16 +5,18 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.commands;
+package frc.robot.drivetrain.commands;
 
+import frc.robot.drivetrain.Intake;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class TeleOpIntake extends Command {
   public TeleOpIntake() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.TeleOpIntake);
+    requires(Robot.INTAKE);
   }
 
   // Called just before this Command runs the first time
@@ -26,7 +28,7 @@ public class TeleOpIntake extends Command {
   @Override
   protected void execute() {
 
-    Robot.TeleOpIntake.setSpeed(1);
+    //Robot.IntakeMotor.setSpeed(0);
    
 
   }
