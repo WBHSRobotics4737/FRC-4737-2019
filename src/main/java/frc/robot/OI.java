@@ -7,8 +7,8 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import org.usfirst.frc.team4737.lib.XboxController;
-import org.usfirst.frc.team4737.robot.commands.*;
+import frc.lib.XboxController;
+import frc.robot.drivetrain.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.button.BUTTONS;
 
