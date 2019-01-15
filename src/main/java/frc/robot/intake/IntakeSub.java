@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.drivetrain;
+package frc.robot.intake;
 
 //import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -13,19 +13,20 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import frc.robot.RobotMap;
-import frc.robot.drivetrain.commands.TeleOpIntake;
+import frc.robot.intake.commands.DisableIntake;
+import frc.robot.intake.commands.TeleOpIntake;
 
 /**
  * Add your docs here.
  */
-public class Intake extends Subsystem {
+public class IntakeSub extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public static WPI_TalonSRX IntakeMotor;
+  public static WPI_TalonSRX intakeMotor;
 
-  public Intake() {
-    IntakeMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR);
+  public IntakeSub() {
+    intakeMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR);
 
 
 
@@ -35,6 +36,9 @@ public class Intake extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new TeleOpIntake());
+    setDefaultCommand(new DisableIntake());
   }
+
+public void setSpeed(int i) {
+}
 }

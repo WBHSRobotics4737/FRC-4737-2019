@@ -1,7 +1,4 @@
-
-
-
-package frc.lib;
+package frc.libs;
 
 public class XboxController extends Gamepad {
 

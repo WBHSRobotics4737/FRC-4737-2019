@@ -7,10 +7,10 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import frc.lib.XboxController;
-import frc.robot.drivetrain.commands.*;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.button.BUTTONS;
+
+import frc.libs.Gamepad;
+import frc.libs.XboxController;
+import frc.robot.intake.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -45,10 +45,11 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-
+  public Gamepad driver;
   public OI() {
-   // Button button = new JButton(button, 1);
-    button.getButton("A").whenPressed(new TeleOpIntake());
+    driver = new XboxController(0);   // Button button = new JButton(button, 1);
+    driver.getButton("A").whileHeld(new TeleOpIntake());
+    
   }
 }
 

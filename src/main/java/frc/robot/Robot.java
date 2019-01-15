@@ -10,7 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.drivetrain.Intake;
+import frc.robot.intake.IntakeSub;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -20,7 +20,7 @@ import frc.robot.drivetrain.Intake;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Intake INTAKE = new Intake();
+  public static IntakeSub INTAKE = new IntakeSub();
   public static OI OI;
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
