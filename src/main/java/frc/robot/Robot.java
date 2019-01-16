@@ -10,7 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import frc.robot.drivetrain.Drivetrain;
+import frc.robot.intake.IntakeSub;
 
 /*
  * The VM is configured to automatically run this class, and to call the
@@ -20,8 +22,10 @@ import frc.robot.drivetrain.Drivetrain;
  * project.
  */
 public class Robot extends TimedRobot {
+	
   public static Drivetrain DRIVETRAIN = new Drivetrain();
-  //public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
+  public static IntakeSub INTAKE = new IntakeSub();
+  
   public static OI OI;
 
   private static final String kDefaultAuto = "Default";
@@ -38,6 +42,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    OI = new OI();
   }
 
   /*
@@ -99,4 +104,5 @@ public class Robot extends TimedRobot {
   @Override
   public void testPeriodic() {
   }
+  
 }

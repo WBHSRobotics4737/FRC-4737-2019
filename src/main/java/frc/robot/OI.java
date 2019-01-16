@@ -7,7 +7,9 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
+import frc.libs.Gamepad;
+import frc.libs.XboxController;
+import frc.robot.intake.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -19,7 +21,7 @@ public class OI {
   //// joystick.
   // You create one by telling it which joystick it's on and which button
   // number it is.
-  public Joystick stick;// = new Joystick(0);
+  // public Joystick stick = new Joystick(0);
   // Button button = new JoystickButton(stick, buttonNumber);
 
   // There are a few additional built in buttons you can use. Additionally,
@@ -42,8 +44,12 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 
+  public Gamepad driver;
+  
   public OI() {
-    stick = new Joystick(0);
+    driver = new XboxController(0);
+	
+    driver.getButton("A").whileHeld(new TeleOpIntake());
   }
-
+  
 }

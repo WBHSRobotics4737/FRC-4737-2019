@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.drivetrain;
+package frc.robot.intake;
 
 //import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -17,43 +17,29 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 
 import frc.robot.RobotMap;
-import frc.robot.drivetrain.commands.TeleOpDrive;
+import frc.robot.intake.commands.DisableIntake;
+import frc.robot.intake.commands.TeleOpIntake;
 
 /**
  * Add your docs here.
  */
-public class Drivetrain extends Subsystem {
+public class IntakeSub extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  private WPI_TalonSRX frontLeftM;
-  private WPI_TalonSRX frontRightM;
-  private WPI_TalonSRX rearLeftS;
-  private WPI_TalonSRX rearRightS;
+  public static WPI_TalonSRX intakeMotor;
 
-  private DifferentialDrive drive;
-
-  public Drivetrain() {
-    frontLeftM = new WPI_TalonSRX(RobotMap.FRONTLEFTM);
-    rearLeftS = new WPI_TalonSRX(RobotMap.REARLEFTS);
-    frontRightM = new WPI_TalonSRX(RobotMap.FRONTRIGHTM);
-    rearRightS = new WPI_TalonSRX(RobotMap.REARRIGHTS);
-    
-	//slave follows master configuration
-	rearRightS.follow(frontRightM);
-	rearLeftS.follow(frontLeftM);
-	
-	drive = new DifferentialDrive(frontLeftM, frontRightM);
+  public IntakeSub() {
+    intakeMotor = new WPI_TalonSRX(RobotMap.INTAKE_MOTOR);
   }
-  
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new TeleOpDrive());
+    setDefaultCommand(new DisableIntake());
   }
 
-  public void arcadeDrive(double throttle, double steer) {
-    drive.arcadeDrive(throttle, steer);
-  }   
-
+  public void setSpeed(int i) {
+  }
+  
 }
