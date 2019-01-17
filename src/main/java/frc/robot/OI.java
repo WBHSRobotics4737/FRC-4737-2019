@@ -1,3 +1,4 @@
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -10,6 +11,7 @@ package frc.robot;
 import frc.libs.Gamepad;
 import frc.libs.XboxController;
 import frc.robot.intake.commands.*;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -21,8 +23,7 @@ public class OI {
   //// joystick.
   // You create one by telling it which joystick it's on and which button
   // number it is.
-  // public Joystick stick = new Joystick(0);
-  // Button button = new JoystickButton(stick, buttonNumber);
+   
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -36,6 +37,8 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenPressed(new ExampleCommand());
 
+
+  public Joystick stick;
   // Run the command while the button is being held down and interrupt it once
   // the button is released.
   // button.whileHeld(new ExampleCommand());
@@ -43,13 +46,14 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-
   public Gamepad driver;
-  
   public OI() {
-    driver = new XboxController(0);
-	
+    driver = new XboxController(0);   // Button button = new JButton(button, 1);
     driver.getButton("A").whileHeld(new TeleOpIntake());
+    driver.getButton("B").whileHeld(new TeleOpUnintake());
+    stick = new Joystick(0);
+    
+    
   }
-  
 }
+
