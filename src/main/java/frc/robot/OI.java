@@ -52,6 +52,7 @@ public class OI {
     driver.getButton("A").whileHeld(new TeleOpIntake());
     driver.getButton("B").whileHeld(new TeleOpUnintake());
     stick = new Joystick(0);
+    driver.getbutton("X").whileheld(new TeleOpUp());
     
     
   }
