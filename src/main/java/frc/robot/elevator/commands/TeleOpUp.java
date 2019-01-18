@@ -6,16 +6,17 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.elevator.commands;
+import frc.robot.elevator.Elevatorsub;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class TeleOpUp extends Command {
-  public TeleOpUp {
+  public TeleOpUp() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.INTAKE);
+    requires(Robot.UPDOWN);
   }
 
   // Called just before this Command runs the first time
@@ -27,7 +28,7 @@ public class TeleOpUp extends Command {
   @Override
   protected void execute() {
 
-    Robot.INTAKE.setSpeed(1);
+    Robot.UPDOWN.setSpeed(1);
    
 
   }

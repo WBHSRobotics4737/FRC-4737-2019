@@ -12,6 +12,7 @@ import frc.libs.Gamepad;
 import frc.libs.XboxController;
 import frc.robot.intake.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.elevator.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -52,7 +53,7 @@ public class OI {
     driver.getButton("A").whileHeld(new TeleOpIntake());
     driver.getButton("B").whileHeld(new TeleOpUnintake());
     stick = new Joystick(0);
-    driver.getbutton("X").whileheld(new TeleOpUp());
+    driver.getButton("X").whileHeld(new TeleOpUp());
     
     
   }
