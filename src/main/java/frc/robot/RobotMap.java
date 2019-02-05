@@ -32,4 +32,8 @@ public class RobotMap {
   
   public static int INTAKE_MOTOR = 7;
 
+  public static int TOPSOLENOID = 4;
+
+  public static int BOTTOMSOLENOID = 5;
+
 }
