@@ -7,14 +7,10 @@
 
 package frc.robot.intake;
 
-//import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 import frc.robot.intake.commands.DisableIntake;
-import frc.robot.intake.commands.TeleOpIntake;
 
 /**
  * Add your docs here.

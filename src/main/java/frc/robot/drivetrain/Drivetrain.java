@@ -10,7 +10,6 @@ package frc.robot.drivetrain;
 //import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
@@ -37,11 +36,11 @@ public class Drivetrain extends Subsystem {
     frontRightM = new WPI_TalonSRX(RobotMap.FRONTRIGHTM);
     rearRightS = new WPI_TalonSRX(RobotMap.REARRIGHTS);
     
-	//slave follows master configuration
-	rearRightS.follow(frontRightM);
-	rearLeftS.follow(frontLeftM);
-	
-	drive = new DifferentialDrive(frontLeftM, frontRightM);
+	  //slave follows master configuration
+	  rearRightS.follow(frontRightM);
+	  rearLeftS.follow(frontLeftM);
+    
+	  drive = new DifferentialDrive(frontLeftM, frontRightM);
   }
   
   @Override

@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.drivetrain.Drivetrain;
 import frc.robot.elevator.ElevatorSub;
 import frc.robot.intake.IntakeSub;
-import frc.robot.elevator.Elevatorsub;
 
 /*
  * The VM is configured to automatically run this class, and to call the

@@ -26,6 +26,7 @@ public class ElevatorSub extends Subsystem {
     elevatorMotorL = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_L);
     elevatorMotorL.setInverted(true);
   }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -47,11 +48,10 @@ public class ElevatorSub extends Subsystem {
     }     
     elevatorMotorL.set(speed);
     elevatorMotorR.set(speed);
-
   }
 
   public void setHeight(double height) {
-
+    
   }
 
   /**
@@ -61,4 +61,5 @@ public class ElevatorSub extends Subsystem {
   public double getHeight() {
     return 0;
   }
+  
 }

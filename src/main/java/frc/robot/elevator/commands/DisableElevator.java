@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class DisableElevator extends Command {
+
   public DisableElevator() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -44,4 +45,5 @@ public class DisableElevator extends Command {
   @Override
   protected void interrupted() {
   }
+  
 }
