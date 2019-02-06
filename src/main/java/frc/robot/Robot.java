@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.drivetrain.Drivetrain;
+import frc.robot.elevator.ElevatorSub;
 import frc.robot.intake.IntakeSub;
 import frc.robot.elevator.Elevatorsub;
 
@@ -25,15 +26,25 @@ import frc.robot.elevator.Elevatorsub;
  * project.
  */
 public class Robot extends TimedRobot {
-	
+  
+  private static Robot instance = null;
+  
+  public static Robot getInstance() {
+    return instance;
+  }
+
   public static Drivetrain DRIVETRAIN = new Drivetrain();
   public static IntakeSub INTAKE = new IntakeSub();
-  public static Elevatorsub UPDOWN = new Elevatorsub();
+  public static ElevatorSub ELEVATOR = new ElevatorSub();
   
   public static OI OI;
 
   private Command autonomousCommand;
   private final SendableChooser<Command> chooser = new SendableChooser<>();
+
+  public Robot() {
+    instance = this;
+  }
 
   /**
    * This function is run when the robot is first started up and should be

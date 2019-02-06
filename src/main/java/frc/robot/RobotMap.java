@@ -37,4 +37,7 @@ public class RobotMap {
 
   public static int BOTTOMSOLENOID = 5;
 
+  public static int ELEVATOR_MOTOR_R = 10;
+  public static int ELEVATOR_MOTOR_L = 11;
+
 }

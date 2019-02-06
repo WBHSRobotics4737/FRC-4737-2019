@@ -8,8 +8,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.libs.Gamepad;
 import frc.libs.XboxController;
+import frc.robot.elevator.commands.TeleOpControlElevator;
 import frc.robot.intake.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.elevator.commands.*;
@@ -47,15 +49,21 @@ public class OI {
   // Start the command when the button is released and let it run the command
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
-  public Gamepad driver;
+
+  public XboxController driver;
+  
   public OI() {
     driver = new XboxController(0);   // Button button = new JButton(button, 1);
     driver.getButton("A").whileHeld(new TeleOpIntake());
     driver.getButton("B").whileHeld(new TeleOpUnintake());
-    stick = new Joystick(0);
-    driver.getButton("X").whileHeld(new TeleOpUp());
-    
-    
+
+    new Trigger() {
+			public boolean get() {
+				if (Robot.getInstance() == null)
+					return false;
+				return (driver.getAxis("RS_Y").get() != 0);
+			}
+		}.whileActive(new TeleOpControlElevator());
   }
 }
 
