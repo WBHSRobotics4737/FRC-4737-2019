@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.drivetrain.Drivetrain;
 import frc.robot.intake.IntakeSub;
+import frc.robot.elevator.Elevatorsub;
 
 /*
  * The VM is configured to automatically run this class, and to call the
@@ -27,6 +28,7 @@ public class Robot extends TimedRobot {
 	
   public static Drivetrain DRIVETRAIN = new Drivetrain();
   public static IntakeSub INTAKE = new IntakeSub();
+  public static Elevatorsub UPDOWN = new Elevatorsub();
   
   public static OI OI;
 

@@ -5,15 +5,18 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.drivetrain.commands;
+package frc.robot.elevator.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-public class TeleOpDrive extends Command {
-  public TeleOpDrive() {
+import frc.robot.RobotMap;
+import frc.robot.elevator.commands.DisableTeleOpUp;
+
+public class DisableTeleOpUp extends Command {
+  public DisableTeleOpUp() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.DRIVETRAIN);
+    requires(Robot.UPDOWN);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +28,8 @@ public class TeleOpDrive extends Command {
   @Override
   protected void execute() {
 
-    Robot.DRIVETRAIN.arcadeDrive(Robot.OI.stick.getY(), Robot.OI.stick.getX());
+    Robot.UPDOWN.setSpeed(0);
+   
 
   }
 
@@ -45,5 +49,7 @@ public class TeleOpDrive extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+      
   }
 }
+

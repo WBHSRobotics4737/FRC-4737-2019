@@ -1,19 +1,15 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
 
-package frc.robot.drivetrain.commands;
+package frc.robot.intake.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-public class TeleOpDrive extends Command {
-  public TeleOpDrive() {
+import frc.robot.RobotMap;
+
+public class TeleOpUnintake extends Command {
+  public TeleOpUnintake() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.DRIVETRAIN);
+    requires(Robot.INTAKE);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +21,8 @@ public class TeleOpDrive extends Command {
   @Override
   protected void execute() {
 
-    Robot.DRIVETRAIN.arcadeDrive(Robot.OI.stick.getY(), Robot.OI.stick.getX());
+    Robot.INTAKE.setSpeed(-1);
+   
 
   }
 
@@ -45,5 +42,6 @@ public class TeleOpDrive extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
+      
   }
 }
