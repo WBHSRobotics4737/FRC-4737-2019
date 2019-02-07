@@ -10,8 +10,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Trigger;
 import frc.libs.XboxController;
-import frc.robot.elevator.commands.TeleOpControlElevator;
+import frc.robot.drivetrain.commands.*;
+import frc.robot.elevator.commands.*;
 import frc.robot.intake.commands.*;
+import frc.robot.hatch.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -52,6 +54,8 @@ public class OI {
 
     driver.getButton("A").whileHeld(new TeleOpIntake());
     driver.getButton("B").whileHeld(new TeleOpUnintake());
+    driver.getButton("X").whileHeld(new OpenHatch());
+    driver.getButton("Y").whileHeld(new DisableHatch());
 
     new Trigger() {
 			public boolean get() {
@@ -60,6 +64,17 @@ public class OI {
 				return (driver.getAxis("RS_Y").get() != 0);
 			}
     }.whileActive(new TeleOpControlElevator());
+
+    new Trigger() {
+			public boolean get() {
+				if (Robot.getInstance() == null)
+					return false;
+				return (driver.getAxis("LS_Y").get() != 0);
+			}
+    }.whileActive(new TeleOpRaceDrive());
+
+    
+
     
   }
 

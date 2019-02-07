@@ -25,19 +25,25 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  public static int FRONTLEFTM = 0;
-  public static int FRONTRIGHTM = 1;
-  public static int REARLEFTS = 2;
-  public static int REARRIGHTS = 3;
+  public static int FRONTLEFTM = 10;
+  public static int FRONTRIGHTM = 11;
+  public static int REARLEFTS = 12;
+  public static int REARRIGHTS = 13;
   
-  public static int INTAKE_MOTOR = 7;
-  public static int ELEVATORMOTOR = 9;
+  public static int INTAKE_MOTOR = 14;
 
-  public static int TOPSOLENOID = 4;
+  public static int ELEVATOR_MOTOR_R = 15;
+  public static int ELEVATOR_MOTOR_L = 16;
 
-  public static int BOTTOMSOLENOID = 5;
+  // Pneumatics
 
-  public static int ELEVATOR_MOTOR_R = 10;
-  public static int ELEVATOR_MOTOR_L = 11;
+  public static int TOPSOLENOID_FORWARDCHANNEL = 0;
+  public static int TOPSOLENOID_REVERSECHANNEL = 1;
+  public static int BOTTOMSOLENOID_FORWARDCHANNEL = 2;
+  public static int BOTTOMSOLENOID_REVERSECHANNEL = 3;
 
+
+  //Fun Constants
+
+  public static final double DRIVE_SLOW_SCALE = 0.5;
 }
