@@ -11,11 +11,11 @@ import frc.robot.Robot;
 
  */
 
-public class OpenHatch extends Command {
+public class LowerHatchControls extends Command {
 
 
 
-	public OpenHatch() {
+	public LowerHatchControls() {
 
 		requires(Robot.HATCH);
 
@@ -35,19 +35,19 @@ public class OpenHatch extends Command {
 
 	protected void execute() {
 
-		boolean grab = Robot.OI.driver.getButton("X").get();
+		boolean extend = Robot.OI.operator.getButton("A").get();
 
-		boolean release = Robot.OI.driver.getButton("Y").get();
+		boolean retract = Robot.OI.operator.getButton("B").get();
 
 
 
-		if (grab) {
-
-			Robot.HATCH.closePneumatics();
-
-		} else if (release) {
+		if (extend) {
 
 			Robot.HATCH.openPneumatics();
+
+		} else if (retract) {
+
+			Robot.HATCH.closePneumatics();
 
 		}
 

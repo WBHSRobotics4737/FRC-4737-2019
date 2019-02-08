@@ -41,6 +41,12 @@ public class RobotMap {
   public static int TOPSOLENOID_REVERSECHANNEL = 1;
   public static int BOTTOMSOLENOID_FORWARDCHANNEL = 2;
   public static int BOTTOMSOLENOID_REVERSECHANNEL = 3;
+  public static int TOPLIFTSOLENOID_FORWARDCHANNEL = 4;
+  public static int TOPLIFTSOLENOID_REVERSECHANNEL = 5;
+  public static int MIDDLELIFTSOLENOID_FORWARDCHANNEL = 6;
+  public static int MIDDLELIFTSOLENOID_REVERSECHANNEL = 7;
+  public static int BOTTOMLIFTSOLENOID_FORWARDCHANNEL = 8;
+  public static int BOTTOMLIFTSOLENOID_REVERSECHANNEL = 9;
 
 
   //Fun Constants

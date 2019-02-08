@@ -9,6 +9,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.Trigger;
+import frc.libs.F310Gamepad;
 import frc.libs.XboxController;
 import frc.robot.drivetrain.commands.*;
 import frc.robot.elevator.commands.*;
@@ -48,14 +49,17 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public XboxController driver;
+  public F310Gamepad operator;
   
   public OI() {
     driver = new XboxController(0);
 
-    driver.getButton("A").whileHeld(new TeleOpIntake());
-    driver.getButton("B").whileHeld(new TeleOpUnintake());
-    driver.getButton("X").whileHeld(new OpenHatch());
-    driver.getButton("Y").whileHeld(new DisableHatch());
+    operator.getButton("RT").whileHeld(new TeleOpIntake());
+    operator.getButton("LT").whileHeld(new TeleOpUnintake());
+    operator.getButton("A").whileHeld(new LowerHatchControls());
+    operator.getButton("B").whileHeld(new LowerHatchControls());
+    operator.getButton("X").whileHeld(new UpperHatchControls());
+    operator.getButton("Y").whileHeld(new UpperHatchControls());
 
     new Trigger() {
 			public boolean get() {
@@ -68,10 +72,28 @@ public class OI {
     new Trigger() {
 			public boolean get() {
 				if (Robot.getInstance() == null)
-					return false;
-				return (driver.getAxis("LS_Y").get() != 0);
+          return false;
+				return (Robot.OI.driver.getAxis("LT").get()!= 0);
 			}
     }.whileActive(new TeleOpRaceDrive());
+
+      
+    new Trigger() {
+			public boolean get() {
+				if (Robot.getInstance() == null)
+          return false;
+				return (Robot.OI.driver.getAxis("RT").get()!= 0);
+			}
+    }.whileActive(new TeleOpRaceDrive());
+
+    new Trigger() {
+			public boolean get() {
+				if (Robot.getInstance() == null)
+          return false;
+				return (Robot.OI.driver.getAxis("LS_X").get()!= 0);
+			}
+    }.whileActive(new TeleOpRaceDrive());
+
 
     
 
