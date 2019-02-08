@@ -14,6 +14,7 @@ import frc.libs.XboxController;
 import frc.robot.drivetrain.commands.*;
 import frc.robot.elevator.commands.*;
 import frc.robot.intake.commands.*;
+import frc.robot.liftsystem.commands.TeleOpLift;
 import frc.robot.hatch.commands.*;
 
 /**
@@ -60,6 +61,8 @@ public class OI {
     operator.getButton("B").whileHeld(new LowerHatchControls());
     operator.getButton("X").whileHeld(new UpperHatchControls());
     operator.getButton("Y").whileHeld(new UpperHatchControls());
+    operator.getButton("RB").whileHeld(new TeleOpLift());
+    operator.getButton("LB").whileHeld(new TeleOpLift());
 
     new Trigger() {
 			public boolean get() {
@@ -94,6 +97,24 @@ public class OI {
 			}
     }.whileActive(new TeleOpRaceDrive());
 
+
+    // Intake code
+
+    new Trigger() {
+			public boolean get() {
+				if (Robot.getInstance() == null)
+          return false;
+				return (Robot.OI.operator.getAxis("RT").get()!= 0);
+			}
+    }.whileActive(new TeleOpIntake());
+    
+    new Trigger() {
+			public boolean get() {
+				if (Robot.getInstance() == null)
+          return false;
+				return (Robot.OI.operator.getAxis("RT").get()!= 0);
+			}
+    }.whileActive(new TeleOpUnintake());
 
     
 
