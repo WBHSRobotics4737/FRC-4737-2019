@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
   public static IntakeSub INTAKE = new IntakeSub();
   public static ElevatorSub ELEVATOR = new ElevatorSub();
   public static HatchSub HATCH = new HatchSub();
-  public static LiftSub LIFT = new LiftSub();
+  public static LiftSub LIFT;// = new LiftSub();
   
   public static OI OI;
 

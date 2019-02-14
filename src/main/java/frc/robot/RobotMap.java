@@ -52,9 +52,7 @@ public class RobotMap {
   public static int BOTTOMLIFTSOLENOID_FORWARDCHANNEL = 8;
   public static int BOTTOMLIFTSOLENOID_REVERSECHANNEL = 9;
 
-
-
   //Fun Constants
-
   public static final double DRIVE_SLOW_SCALE = 0.5;
+
 }
