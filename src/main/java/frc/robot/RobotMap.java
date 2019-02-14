@@ -25,15 +25,15 @@ public class RobotMap {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
-  public static int FRONTLEFTM = 10;
-  public static int FRONTRIGHTM = 11;
-  public static int REARLEFTS = 12;
-  public static int REARRIGHTS = 13;
+  public static int FRONTLEFTM = 20;
+  public static int FRONTRIGHTM = 19;
+  public static int REARLEFTS = 21;
+  public static int REARRIGHTS = 18;
   
   public static int INTAKE_MOTOR = 14;
 
   public static int ELEVATOR_MOTOR_R = 15;
-  public static int ELEVATOR_MOTOR_L = 16;
+  public static int ELEVATOR_MOTOR_L = 15;
 
   // Pneumatics
   // Hatch Pneumatics
