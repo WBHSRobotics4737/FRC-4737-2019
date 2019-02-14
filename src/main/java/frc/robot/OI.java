@@ -27,7 +27,6 @@ public class OI {
   //// joystick.
   // You create one by telling it which joystick it's on and which button
   // number it is.
-   
 
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
@@ -51,77 +50,46 @@ public class OI {
 
   public XboxController driver;
   public F310Gamepad operator;
-  
+
   public OI() {
     driver = new XboxController(0);
 
-    operator.getButton("RT").whileHeld(new TeleOpIntake());
-    operator.getButton("LT").whileHeld(new TeleOpUnintake());
-    operator.getButton("A").whileHeld(new LowerHatchControls());
-    operator.getButton("B").whileHeld(new LowerHatchControls());
-    operator.getButton("X").whileHeld(new UpperHatchControls());
-    operator.getButton("Y").whileHeld(new UpperHatchControls());
-    operator.getButton("RB").whileHeld(new TeleOpLift());
-    operator.getButton("LB").whileHeld(new TeleOpLift());
-    
+    operator.A.whileHeld(new SetBottomHatchPneumatic(true));
+    operator.X.whileHeld(new SetBottomHatchPneumatic(false));
+    operator.B.whileHeld(new SetTopHatchPneumatic(true));
+    operator.Y.whileHeld(new SetTopHatchPneumatic(false));
+    operator.DPAD.LEFT.whenPressed(new SetExtenderHatchPneumatic(false));
+    operator.DPAD.RIGHT.whenPressed(new SetExtenderHatchPneumatic(true));
+    // operator.getButton("RB").whileHeld(new TeleOpLift());
+    // operator.getButton("LB").whileHeld(new TeleOpLift());
 
     // elevator code
     new Trigger() {
-			public boolean get() {
-				if (Robot.getInstance() == null)
-					return false;
-				return (driver.getAxis("RS_Y").get() != 0);
-			}
+      public boolean get() {
+        if (Robot.getInstance() == null)
+          return false;
+        return (operator.RS.Y.get() != 0);
+      }
     }.whileActive(new TeleOpControlElevator());
 
+    // elevator code
     new Trigger() {
-			public boolean get() {
-				if (Robot.getInstance() == null)
+      public boolean get() {
+        if (Robot.getInstance() == null)
           return false;
-				return (Robot.OI.driver.getAxis("LT").get()!= 0);
-			}
+        return (operator.RT.get() != 0 || operator.LT.get() != 0);
+      }
+    }.whileActive(new TeleOpControlIntake());
+
+    // Driver code
+    new Trigger() {
+      public boolean get() {
+        if (Robot.getInstance() == null)
+          return false;
+        return (Robot.OI.driver.LT.get() != 0 || Robot.OI.driver.RT.get() != 0 || Robot.OI.driver.LS.X.get() != 0);
+      }
     }.whileActive(new TeleOpRaceDrive());
 
-   // Driver code   
-    new Trigger() {
-			public boolean get() {
-				if (Robot.getInstance() == null)
-          return false;
-				return (Robot.OI.driver.getAxis("RT").get()!= 0);
-			}
-    }.whileActive(new TeleOpRaceDrive());
-
-    new Trigger() {
-			public boolean get() {
-				if (Robot.getInstance() == null)
-          return false;
-				return (Robot.OI.driver.getAxis("LS_X").get()!= 0);
-			}
-    }.whileActive(new TeleOpRaceDrive());
-
-
-    // Intake code
-
-    new Trigger() {
-			public boolean get() {
-				if (Robot.getInstance() == null)
-          return false;
-				return (Robot.OI.operator.getAxis("RT").get()!= 0);
-			}
-    }.whileActive(new TeleOpIntake());
-    
-    new Trigger() {
-			public boolean get() {
-				if (Robot.getInstance() == null)
-          return false;
-				return (Robot.OI.operator.getAxis("RT").get()!= 0);
-			}
-    }.whileActive(new TeleOpUnintake());
-
-    
-
-    
   }
 
 }
-

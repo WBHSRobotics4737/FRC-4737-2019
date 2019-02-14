@@ -10,9 +10,9 @@ package frc.robot.intake.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class TeleOpIntake extends Command {
+public class TeleOpControlIntake extends Command {
 
-  public TeleOpIntake() {
+  public TeleOpControlIntake() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.INTAKE);
@@ -26,7 +26,8 @@ public class TeleOpIntake extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.INTAKE.setSpeed(1);
+    double output = Robot.OI.operator.LT.get() - Robot.OI.operator.RT.get();
+    Robot.INTAKE.setSpeed(output);
   }
 
   // Make this return true when this Command no longer needs to run execute()

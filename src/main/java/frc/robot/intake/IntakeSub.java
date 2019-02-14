@@ -31,7 +31,8 @@ public class IntakeSub extends Subsystem {
     setDefaultCommand(new DisableIntake());
   }
 
-  public void setSpeed(int i) {
+  public void setSpeed(double speed) {
+    intakeMotor.set(speed);
   }
   
 }
