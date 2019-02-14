@@ -35,23 +35,24 @@ public class ElevatorSub extends Subsystem {
   }
 
   public void setSpeed(double speed) {
-    if (speed < 0) {
-      double maxSpeed = -(1.0/6.0)*getHeight()-0.2;
-      if (speed < maxSpeed) {
-        speed = maxSpeed;
-      }
-    } else if (speed > 0) {
-      double maxSpeed = (1.0/6.0)*getHeight()+0.2;
-      if (speed > maxSpeed) {
-        speed = maxSpeed;
-      }
-    }     
+    // This code only works with an elevator encoder
+    // if (speed < 0) {
+    //   double maxSpeed = -(1.0/6.0)*getHeight()-0.2;
+    //   if (speed < maxSpeed) {
+    //     speed = maxSpeed;
+    //   }
+    // } else if (speed > 0) {
+    //   double maxSpeed = (1.0/6.0)*getHeight()+0.2;
+    //   if (speed > maxSpeed) {
+    //     speed = maxSpeed;
+    //   }
+    // }     
     elevatorMotorL.set(speed);
     elevatorMotorR.set(speed);
   }
 
   public void setHeight(double height) {
-    
+    // To do when the elevator encoder is added
   }
 
   /**
@@ -59,7 +60,7 @@ public class ElevatorSub extends Subsystem {
    * @return The elevator height in inches
    */
   public double getHeight() {
-    return 0;
+    return 0; // To do when the elevator encoder is added
   }
   
 }
