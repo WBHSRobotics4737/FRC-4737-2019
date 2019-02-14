@@ -6,7 +6,6 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.drivetrain;
-
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 //import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -15,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
 
-import frc.robot.drivetrain.commands.*;
+import frc.robot.drivetrain.commands.TeleOpDrive;
 
 /**
  * Add your docs here.
@@ -47,11 +46,16 @@ public class Drivetrain extends Subsystem {
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
-    setDefaultCommand(new TeleOpRaceDrive());
+    setDefaultCommand(new TeleOpDrive());
   }
+
+  public void arcadeDrive(double throttle, double steer) {
+    drive.arcadeDrive(throttle, steer);
+  }   
 
   public void setBrakeMode() {
 
+    
 		frontLeftM.setNeutralMode(NeutralMode.Brake);
 
 		rearLeftS.setNeutralMode(NeutralMode.Brake);
@@ -59,11 +63,6 @@ public class Drivetrain extends Subsystem {
 		frontRightM.setNeutralMode(NeutralMode.Brake);
 
 		rearRightS.setNeutralMode(NeutralMode.Brake);
-
-	}
-
-  public void arcadeDrive(double throttle, double steer) {
-    drive.arcadeDrive(throttle, steer);
-  }   
+  }
 
 }

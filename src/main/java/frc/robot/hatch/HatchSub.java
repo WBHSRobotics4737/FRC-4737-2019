@@ -4,21 +4,22 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.Solenoid;
+//import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class HatchSub extends Subsystem {
 
     private DoubleSolenoid topsolenoid, bottomsolenoid;
+    private Solenoid singlesolenoid = new Solenoid(10);
 
     public HatchSub() {
-        topsolenoid = new DoubleSolenoid(RobotMap.TOPSOLENOID_FORWARDCHANNEL, RobotMap.TOPSOLENOID_REVERSECHANNEL);
+        topsolenoid = new DoubleSolenoid(RobotMap.TOPSOLENOID_FORWARDCHANNEL, RobotMap.TOPSOLENOID_REVERSECHANNEL);   
         bottomsolenoid = new DoubleSolenoid(RobotMap.BOTTOMSOLENOID_FORWARDCHANNEL, RobotMap.BOTTOMSOLENOID_REVERSECHANNEL);
-    }
+        singlesolenoid.set(true);
+        singlesolenoid.set(false);
+      }
 
-    @Override
-    public void initDefaultCommand() {
-      // Set the default command for a subsystem here.
-      //setDefaultCommand(new DisableHatch());
-    }
+  
     public void closePneumatics() {
 
       setPneumatics(Value.kReverse, Value.kReverse);
@@ -49,6 +50,11 @@ public class HatchSub extends Subsystem {
   
       bottomsolenoid.set(bottom);
   
+    }
+  @Override
+    public void initDefaultCommand() {
+      // Set the default command for a subsystem here.
+      //setDefaultCommand(new DisableHatch());
     }
 
 }

@@ -63,7 +63,9 @@ public class OI {
     operator.getButton("Y").whileHeld(new UpperHatchControls());
     operator.getButton("RB").whileHeld(new TeleOpLift());
     operator.getButton("LB").whileHeld(new TeleOpLift());
+    
 
+    // elevator code
     new Trigger() {
 			public boolean get() {
 				if (Robot.getInstance() == null)
@@ -80,7 +82,7 @@ public class OI {
 			}
     }.whileActive(new TeleOpRaceDrive());
 
-      
+   // Driver code   
     new Trigger() {
 			public boolean get() {
 				if (Robot.getInstance() == null)

@@ -38,7 +38,7 @@ public class UpperHatchControls extends Command {
 
 		boolean extend = Robot.OI.operator.getButton("X").get();
 
-		boolean release = Robot.OI.operator.getButton("Y").get();
+		boolean retract = Robot.OI.operator.getButton("Y").get();
 
 
 
@@ -46,7 +46,7 @@ public class UpperHatchControls extends Command {
 
 			Robot.HATCH.openPneumatics();
 
-		} else if (release) {
+		} else if (retract) {
 
 			Robot.HATCH.closePneumatics();
 
