@@ -32,8 +32,8 @@ public class RobotMap {
   
   public static int INTAKE_MOTOR = 14;
 
-  public static int ELEVATOR_MOTOR_R = 15;
-  public static int ELEVATOR_MOTOR_L = 15;
+  // public static int ELEVATOR_MOTOR_R = 15;
+  public static int ELEVATOR_MOTOR_L = 13;
 
   // Pneumatics
   // Hatch Pneumatics
@@ -41,8 +41,8 @@ public class RobotMap {
   public static int TOPSOLENOID_REVERSECHANNEL = 1;
   public static int BOTTOMSOLENOID_FORWARDCHANNEL = 2;
   public static int BOTTOMSOLENOID_REVERSECHANNEL = 3;
-  public static int SINGLESOLENOID_FORWARDCHANNEL = 10;
-  public static int SINGLESOLENOID_REVERSECHANNEL = 11;
+  public static int SINGLESOLENOID_FORWARDCHANNEL = 4;
+  public static int SINGLESOLENOID_REVERSECHANNEL = 5;
 
   // Lift subsystem
   public static int TOPLIFTSOLENOID_FORWARDCHANNEL = 4;

@@ -49,10 +49,11 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public XboxController driver;
-  public F310Gamepad operator;
+  public XboxController operator;
 
   public OI() {
     driver = new XboxController(0);
+    operator = new XboxController(2);
 
     operator.A.whileHeld(new SetBottomHatchPneumatic(true));
     operator.X.whileHeld(new SetBottomHatchPneumatic(false));
@@ -68,7 +69,7 @@ public class OI {
       public boolean get() {
         if (Robot.getInstance() == null)
           return false;
-        return (operator.RS.Y.get() != 0);
+        return (operator.LS.Y.get() != 0);
       }
     }.whileActive(new TeleOpControlElevator());
 
@@ -86,7 +87,7 @@ public class OI {
       public boolean get() {
         if (Robot.getInstance() == null)
           return false;
-        return (Robot.OI.driver.LT.get() != 0 || Robot.OI.driver.RT.get() != 0 || Robot.OI.driver.LS.X.get() != 0);
+        return (driver.LT.get() != 0 || driver.RT.get() != 0 || driver.LS.X.get() != 0);
       }
     }.whileActive(new TeleOpRaceDrive());
 

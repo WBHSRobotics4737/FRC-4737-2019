@@ -26,7 +26,7 @@ public class TeleOpControlElevator extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.ELEVATOR.setSpeed(Robot.OI.driver.RS.Y.get());
+    Robot.ELEVATOR.setSpeed(Robot.OI.operator.LS.Y.get());
   }
 
   // Make this return true when this Command no longer needs to run execute()

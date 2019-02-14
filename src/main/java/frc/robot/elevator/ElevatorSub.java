@@ -18,11 +18,11 @@ public class ElevatorSub extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public static WPI_TalonSRX elevatorMotorR;
+  // public static WPI_TalonSRX elevatorMotorR;
   public static WPI_TalonSRX elevatorMotorL;
 
   public ElevatorSub() {
-    elevatorMotorR = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_R);
+    // elevatorMotorR = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_R);
     elevatorMotorL = new WPI_TalonSRX(RobotMap.ELEVATOR_MOTOR_L);
     elevatorMotorL.setInverted(true);
   }
@@ -48,7 +48,7 @@ public class ElevatorSub extends Subsystem {
     //   }
     // }     
     elevatorMotorL.set(speed);
-    elevatorMotorR.set(speed);
+    // elevatorMotorR.set(speed);
   }
 
   public void setHeight(double height) {
