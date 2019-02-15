@@ -10,8 +10,6 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 //import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import org.graalvm.compiler.nodes.calc.LeftShiftNode;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.libs.JerkLimitedTalonSRXController;
@@ -47,11 +45,11 @@ public class Drivetrain extends Subsystem {
 	  rearRightS.follow(frontRightM);
 	  rearLeftS.follow(frontLeftM);
     
-    drive = new DifferentialDrive(frontLeftM, frontRightM);
+    // drive = new DifferentialDrive(frontLeftM, frontRightM);
     
     smoothDrive = new DifferentialDrive(
-				lSmoothDrive = new JerkLimitedTalonSRXController(frontLeftM, 1, 8, 30),
-				rSmoothDrive = new JerkLimitedTalonSRXController(frontRightM, 1, 8, 30));
+				lSmoothDrive = new JerkLimitedTalonSRXController(frontLeftM, 1, 25, 80),
+				rSmoothDrive = new JerkLimitedTalonSRXController(frontRightM, 1, 25, 80));
   }
   
   @Override
