@@ -44,10 +44,12 @@ public class JerkLimitedTalonSRXController implements SpeedController {
 
 	private double jerk;
 
+	private double targetMaxAccel;
+
 	public JerkLimitedTalonSRXController(WPI_TalonSRX talon, double maxSpeed, double maxAccel, double maxJerk) {
 		this.talon = talon;
 		this.maxSpeed = maxSpeed;
-		this.maxAccel = maxAccel;
+		this.maxAccel = targetMaxAccel = maxAccel;
 		this.maxJerk = maxJerk;
 		this.period = 0.005;
 
@@ -58,9 +60,26 @@ public class JerkLimitedTalonSRXController implements SpeedController {
 		accel = 0;
 	}
 
+	public void setMaxAccel(double accel) {
+		this.targetMaxAccel = accel;
+	}
+
+	public void setMaxJerk(double jerk) {
+		this.maxJerk = jerk;
+	}
+
 	private void calculate() {
 		// TODO figure out why moving a targetSpeed creates immense jerk-noise and
 		// accel-noise
+
+		// Handle changing maxAccel
+		if (maxAccel != targetMaxAccel) {
+			if (maxAccel > targetMaxAccel) {
+				maxAccel = Math.max(maxAccel - maxJerk, targetMaxAccel);
+			} else {
+				maxAccel = Math.min(maxAccel + maxJerk, targetMaxAccel);
+			}
+		}
 
 		double lastAccel = accel;
 

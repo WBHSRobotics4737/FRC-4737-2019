@@ -48,8 +48,8 @@ public class Drivetrain extends Subsystem {
     // drive = new DifferentialDrive(frontLeftM, frontRightM);
     
     smoothDrive = new DifferentialDrive(
-				lSmoothDrive = new JerkLimitedTalonSRXController(frontLeftM, 1, 25, 80),
-				rSmoothDrive = new JerkLimitedTalonSRXController(frontRightM, 1, 25, 80));
+				lSmoothDrive = new JerkLimitedTalonSRXController(frontLeftM, RobotMap.DRIVE_MAX_VEL, RobotMap.DRIVE_MAX_ACCEL, RobotMap.DRIVE_MAX_JERK),
+				rSmoothDrive = new JerkLimitedTalonSRXController(frontRightM, RobotMap.DRIVE_MAX_VEL, RobotMap.DRIVE_MAX_ACCEL, RobotMap.DRIVE_MAX_JERK));
   }
   
   @Override
@@ -62,6 +62,11 @@ public class Drivetrain extends Subsystem {
     // drive.arcadeDrive(throttle, steer);
     smoothDrive.arcadeDrive(throttle, steer);
   }   
+
+  public void setAccelerationLimit(double accelLimit) {
+    lSmoothDrive.setMaxAccel(accelLimit);
+    rSmoothDrive.setMaxAccel(accelLimit);
+  }
 
   public void setBrakeMode() {
 		frontLeftM.setNeutralMode(NeutralMode.Brake);

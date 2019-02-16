@@ -55,4 +55,10 @@ public class RobotMap {
   //Fun Constants
   public static final double DRIVE_SLOW_SCALE = 0.5;
 
+  public static final double DRIVE_MAX_VEL = 1;
+  public static final double DRIVE_MAX_ACCEL = 25;
+  public static final double DRIVE_MAX_JERK = 80;
+  
+  public static final double DRIVE_MAX_ACCEL_SLOW = 10;
+
 }

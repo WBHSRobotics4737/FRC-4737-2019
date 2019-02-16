@@ -40,6 +40,12 @@ public class TeleOpRaceDrive extends Command {
 	protected void execute() {
 
 		boolean slow = Robot.OI.driver.getButton("LB").get();
+		boolean slowAccel = Robot.OI.driver.getButton("RB").get();
+		if (slowAccel) {
+			Robot.DRIVETRAIN.setAccelerationLimit(RobotMap.DRIVE_MAX_ACCEL_SLOW);
+		} else {
+			Robot.DRIVETRAIN.setAccelerationLimit(RobotMap.DRIVE_MAX_ACCEL);
+		}
 
 		double throttle = (Robot.OI.driver.getAxis("RT").get() - Robot.OI.driver.getAxis("LT").get())
 
