@@ -13,14 +13,14 @@ import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-public class SetExtenderHatchPneumatic extends InstantCommand {
+public class SetHatchPneumatic extends InstantCommand {
 
   private boolean extended;
 
   /**
    * Add your docs here.
    */
-  public SetExtenderHatchPneumatic(boolean extended) {
+  public SetHatchPneumatic(boolean extended) {
     super();
     requires(Robot.HATCH);
 

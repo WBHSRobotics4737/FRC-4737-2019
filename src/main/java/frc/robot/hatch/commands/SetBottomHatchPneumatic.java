@@ -30,11 +30,13 @@ public class SetBottomHatchPneumatic extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
+    /*
     if (extended) {
       Robot.HATCH.extendBottom();
     } else {
       Robot.HATCH.retractBottom();
     }
+    */
   }
 
 }

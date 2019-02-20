@@ -10,15 +10,15 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 public class HatchSub extends Subsystem {
 
-  private DoubleSolenoid topsolenoid, bottomsolenoid;
-  private DoubleSolenoid extendersolenoid;
+ // private DoubleSolenoid topsolenoid, bottomsolenoid;
+  private DoubleSolenoid hatchsolenoid;
 
   public HatchSub() {
-    topsolenoid = new DoubleSolenoid(RobotMap.TOPSOLENOID_FORWARDCHANNEL, RobotMap.TOPSOLENOID_REVERSECHANNEL);
-    bottomsolenoid = new DoubleSolenoid(RobotMap.BOTTOMSOLENOID_FORWARDCHANNEL, RobotMap.BOTTOMSOLENOID_REVERSECHANNEL);
-    extendersolenoid = new DoubleSolenoid(RobotMap.SINGLESOLENOID_FORWARDCHANNEL, RobotMap.SINGLESOLENOID_REVERSECHANNEL);
+   // topsolenoid = new DoubleSolenoid(RobotMap.TOPSOLENOID_FORWARDCHANNEL, RobotMap.TOPSOLENOID_REVERSECHANNEL);
+   // bottomsolenoid = new DoubleSolenoid(RobotMap.BOTTOMSOLENOID_FORWARDCHANNEL, RobotMap.BOTTOMSOLENOID_REVERSECHANNEL);
+    hatchsolenoid = new DoubleSolenoid(RobotMap.SINGLESOLENOID_FORWARDCHANNEL, RobotMap.SINGLESOLENOID_REVERSECHANNEL);
   }
-
+/*
   public void extendTop() {
     topsolenoid.set(Value.kForward);
   }
@@ -34,24 +34,24 @@ public class HatchSub extends Subsystem {
   public void retractBottom() {
     bottomsolenoid.set(Value.kReverse);
   }
+  */
 
   public void extendExtender() {
-    extendersolenoid.set(Value.kForward);
+    hatchsolenoid.set(Value.kForward);
   }
 
   public void retractExtender() {
-    extendersolenoid.set(Value.kReverse);
+    hatchsolenoid.set(Value.kReverse);
   }
 
   public void disablePneumatics() {
-    setPneumatics(Value.kOff, Value.kOff);
+    hatchsolenoid.set(Value.kOff);
   }
 
-  public void setPneumatics(DoubleSolenoid.Value top, DoubleSolenoid.Value bottom) {
-    topsolenoid.set(top);
-    bottomsolenoid.set(bottom);
-  }
-
+  /*
+   * public void setPneumatics(DoubleSolenoid.Value top, DoubleSolenoid.Value
+   * bottom) { topsolenoid.set(top); bottomsolenoid.set(bottom); }
+   */
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
