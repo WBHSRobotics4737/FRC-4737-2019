@@ -61,6 +61,8 @@ public class OI {
    // operator.Y.whileHeld(new SetTopHatchPneumatic(false));
     operator.DPAD.LEFT.whenPressed(new SetHatchPneumatic(false));
     operator.DPAD.RIGHT.whenPressed(new SetHatchPneumatic(true));
+    operator.DPAD.UP.whenPressed(new ChangeLevel(1));
+    operator.DPAD.DOWN.whenPressed(new ChangeLevel(-1));
     // operator.getButton("RB").whileHeld(new TeleOpLift());
     // operator.getButton("LB").whileHeld(new TeleOpLift());
 

@@ -61,4 +61,10 @@ public class RobotMap {
   
   public static final double DRIVE_MAX_ACCEL_SLOW = 10;
 
+  public static final double[] ELEVATOR_HEIGHTS = new double[] {
+    0,
+    4096 * 15,
+    4096 * 35
+  };
+
 }
