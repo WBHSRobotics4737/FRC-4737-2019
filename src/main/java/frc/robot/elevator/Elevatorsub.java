@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import frc.robot.RobotMap;
 import frc.robot.elevator.commands.DisableElevator;
-
+import frc.robot.elevator.commands.GetElevatorHeight;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.*;
@@ -26,6 +26,7 @@ public class ElevatorSub extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+  private static final double GetElevatorHeight = 0;
   // public static WPI_TalonSRX elevatorMotorR;
   public WPI_TalonSRX elevatorMotorL;
   public int level = 0;
@@ -120,8 +121,8 @@ public class ElevatorSub extends Subsystem {
    * 
    * @return The elevator height in inches
    */
-  public double getHeight() {
-    return 0; // To do when the elevator encoder is added
+  /*public double getHeight() {
+    return GetElevatorHeight; // To do when the elevator encoder is added
   }
-  
+  */
 }

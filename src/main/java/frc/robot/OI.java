@@ -63,6 +63,7 @@ public class OI {
     operator.DPAD.RIGHT.whenPressed(new SetHatchPneumatic(true));
     operator.DPAD.UP.whenPressed(new ChangeLevel(1));
     operator.DPAD.DOWN.whenPressed(new ChangeLevel(-1));
+    operator.B.whenPressed(new GetElevatorHeight());
     // operator.getButton("RB").whileHeld(new TeleOpLift());
     // operator.getButton("LB").whileHeld(new TeleOpLift());
 
