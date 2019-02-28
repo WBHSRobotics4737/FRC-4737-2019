@@ -121,8 +121,8 @@ public class ElevatorSub extends Subsystem {
    * 
    * @return The elevator height in inches
    */
-  /*public double getHeight() {
+  public double getHeight() {
     return GetElevatorHeight; // To do when the elevator encoder is added
   }
-  */
+  
 }

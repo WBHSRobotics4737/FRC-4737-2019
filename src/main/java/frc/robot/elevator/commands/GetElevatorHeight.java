@@ -18,7 +18,9 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
  */
 public class GetElevatorHeight extends InstantCommand {
 
-  double CurrentHeight = 0;
+
+  public int CurrentHeight;
+
   /**
    * Add your docs here.
    */
@@ -33,7 +35,7 @@ public class GetElevatorHeight extends InstantCommand {
   @Override
   protected void initialize() {
     // We can't get figure out how to get the current encoder value for the motor
-    //CurrentHeight = elevatorMotorL;
+    CurrentHeight = elevatorMotorL.getSelectedSensorPosition();
     System.out.print(CurrentHeight);
   }
 
