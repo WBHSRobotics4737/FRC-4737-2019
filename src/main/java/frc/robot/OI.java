@@ -55,12 +55,12 @@ public class OI {
     driver = new XboxController(0);
     operator = new XboxController(2);
 
-    //operator.A.whileHeld(new SetBottomHatchPneumatic(true));
-    //operator.X.whileHeld(new SetBottomHatchPneumatic(false));
-   // operator.B.whileHeld(new SetTopHatchPneumatic(true));
-   // operator.Y.whileHeld(new SetTopHatchPneumatic(false));
-    operator.DPAD.LEFT.whenPressed(new SetHatchPneumatic(false));
-    operator.DPAD.RIGHT.whenPressed(new SetHatchPneumatic(true));
+    operator.A.whileHeld(new SetBottomHatchPneumatic(true));
+    operator.B.whileHeld(new SetBottomHatchPneumatic(false));
+    operator.X.whileHeld(new SetHatchPneumatic(true));
+    operator.Y.whileHeld(new SetHatchPneumatic(false));
+    operator.DPAD.LEFT.whenPressed(new SetTopHatchPneumatic(false));
+    operator.DPAD.RIGHT.whenPressed(new SetTopHatchPneumatic(true));
     operator.DPAD.UP.whenPressed(new ChangeLevel(1));
     operator.DPAD.DOWN.whenPressed(new ChangeLevel(-1));
     operator.B.whenPressed(new GetElevatorHeight());

@@ -37,10 +37,10 @@ public class RobotMap {
 
   // Pneumatics
   // Hatch Pneumatics
- // public static int TOPSOLENOID_FORWARDCHANNEL = 0;
- // public static int TOPSOLENOID_REVERSECHANNEL = 1;
-//  public static int BOTTOMSOLENOID_FORWARDCHANNEL = 2;
- // public static int BOTTOMSOLENOID_REVERSECHANNEL = 3;
+  public static int TOPSOLENOID_FORWARDCHANNEL = 0;
+  public static int TOPSOLENOID_REVERSECHANNEL = 1;
+  public static int BOTTOMSOLENOID_FORWARDCHANNEL = 2;
+  public static int BOTTOMSOLENOID_REVERSECHANNEL = 3;
   public static int SINGLESOLENOID_FORWARDCHANNEL = 4;
   public static int SINGLESOLENOID_REVERSECHANNEL = 5;
 
@@ -54,6 +54,7 @@ public class RobotMap {
 
   //Fun Constants
   public static final double DRIVE_SLOW_SCALE = 0.5;
+  public static final double DRIVE_MAX_SCALE = 1;
 
   public static final double DRIVE_MAX_VEL = 1;
   public static final double DRIVE_MAX_ACCEL = 25;

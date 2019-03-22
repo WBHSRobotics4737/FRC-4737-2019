@@ -20,6 +20,7 @@ public class GetElevatorHeight extends InstantCommand {
 
 
   public int CurrentHeight;
+  public WPI_TalonSRX elevatorMotorL;
 
   /**
    * Add your docs here.

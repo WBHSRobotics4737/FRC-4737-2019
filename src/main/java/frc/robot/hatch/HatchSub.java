@@ -10,15 +10,15 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 public class HatchSub extends Subsystem {
 
- // private DoubleSolenoid topsolenoid, bottomsolenoid;
+ private DoubleSolenoid topsolenoid, bottomsolenoid;
   private DoubleSolenoid hatchsolenoid;
 
   public HatchSub() {
-   // topsolenoid = new DoubleSolenoid(RobotMap.TOPSOLENOID_FORWARDCHANNEL, RobotMap.TOPSOLENOID_REVERSECHANNEL);
-   // bottomsolenoid = new DoubleSolenoid(RobotMap.BOTTOMSOLENOID_FORWARDCHANNEL, RobotMap.BOTTOMSOLENOID_REVERSECHANNEL);
+    topsolenoid = new DoubleSolenoid(RobotMap.TOPSOLENOID_FORWARDCHANNEL, RobotMap.TOPSOLENOID_REVERSECHANNEL);
+    bottomsolenoid = new DoubleSolenoid(RobotMap.BOTTOMSOLENOID_FORWARDCHANNEL, RobotMap.BOTTOMSOLENOID_REVERSECHANNEL);
     hatchsolenoid = new DoubleSolenoid(RobotMap.SINGLESOLENOID_FORWARDCHANNEL, RobotMap.SINGLESOLENOID_REVERSECHANNEL);
   }
-/*
+
   public void extendTop() {
     topsolenoid.set(Value.kForward);
   }
@@ -34,7 +34,7 @@ public class HatchSub extends Subsystem {
   public void retractBottom() {
     bottomsolenoid.set(Value.kReverse);
   }
-  */
+  
 
   public void extendExtender() {
     hatchsolenoid.set(Value.kForward);
